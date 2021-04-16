@@ -1,7 +1,6 @@
-$(document).ready(function() {
-        refreshVideo();
-        document.getElementById("videoCount").innerHTML = "Currently there are "+ countVideos() +" videos in rotation.";
-    });
+refreshVideo();
+document.getElementById("videoCount").innerHTML = "Currently there are "+ countVideos() +" videos in rotation.";
+
 
 function refreshVideo(){
     var videos = thisFunctionIsAnUglyWayToStoreAnArrayBecauseYouCannotReadJSONInFrontendJavascript();    

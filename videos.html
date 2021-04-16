@@ -19,25 +19,29 @@
             </button>
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <ul class="navbar-nav mr-auto">
-                <li class="nav-item active">
-                    <a class="nav-link" href="index.html">Home <span class="sr-only">(current)</span></a>
+                <li class="nav-item">
+                    <a class="nav-link" href="index.html">Home</a>
                 </li>
                 <li class="nav-item">
                     <a class="nav-link" href="bindgenerator.html">Bind generator</a>
-                </li>                
-                <li class="nav-item">
-                    <a class="nav-link" href="videos.html">Important video</a>
+                </li>
+                <li class="nav-item active">
+                    <a class="nav-link" href="videos.html">Important video <span class="sr-only">(current)</span></a>
                 </li>
             </ul>
             </div>
         </nav>
-
+        
         <!--CONTENT-->
         <div class="MainContent">
-            <h1>Hello there!</h1>
-            <img src="images/willgriggsupremewide.jpg" width="80%"></img>
-            <h6><b>figure 1:</b> wide will grigg got supreme drip</h6>
+            <h1>Important video:</h1>
+            <div id="actualVideo" style="margin-bottom: 1rem;"></div>
+            <button onclick="refreshVideo()" class="btn btn-primary" style="float: left;">New video!</button>
+            <h6 id="videoCount" style="float: left; padding-left: 1rem;"></h6>
         </div>
+
+        <!--SCRIPT-->
+        <script src="js/randomizeVideo.js"></script>
     </body>
     
     

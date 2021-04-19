@@ -19,6 +19,6 @@ function generateBind(name, key, input){
 
 function generateBindLine(input, name, index, isLast){
     index = isLast ? 0 : parseInt(index)+1;
-    var toReturn = `alias \"${name}\" \"say ${input}; alias ${name} ${name}${index}\"`;
+    var toReturn = `alias \"${name}${index}\" \"say ${input}; alias ${name} ${name}${index}\"`;
     return toReturn + "\n";
 }

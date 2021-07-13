@@ -6,6 +6,7 @@ function handleSubmit(){
 }
 
 function generateBind(name, key, input){
+    name = name.replaceAll(" ","");
     var output = `alias \"${name}\" \"${name}0\"\n`;
     var inputLines = input.split("\n");
     var indexOffset = 0;

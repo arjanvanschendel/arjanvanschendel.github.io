@@ -12,10 +12,12 @@ var menu =  '<nav class="navbar navbar-expand-lg navbar-light bg-light">' +
                         '<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">' +
                             'CS:GO' +
                         '</a>' +
-                        '<div class="dropdown-menu" aria-labelledby="navbarDropdown">' +
-                            '<a class="dropdown-item" href="bindgenerator.html">Bind generator</a>' +
-                            '<a class="dropdown-item" href="stratroulette.html">StratRoulette</a>' +
-                        '</div>' +
+                        '<li class="nav-item">' +
+                            '<a class="nav-link" href="bindgenerator.html">Bind generator</a>' +
+                        '</li>' +
+                        '<li class="nav-item">' +
+                            '<a class="nav-link" href="stratroulette.html">StratRoulette</a>' +
+                        '</li>' +
                     '</li>' +
                     '<li class="nav-item">' +
                         '<a class="nav-link" href="videos.html">Important video</a>' +

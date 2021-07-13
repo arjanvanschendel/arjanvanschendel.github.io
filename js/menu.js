@@ -12,9 +12,6 @@ var menu =  '<nav class="navbar navbar-expand-lg navbar-light bg-light">' +
                         '<a class="nav-link" href="bindgenerator.html">Bind generator</a>' +
                     '</li>' +
                     '<li class="nav-item">' +
-                        '<a class="nav-link" href="stratroulette.html">StratRoulette</a>' +
-                    '</li>' +
-                    '<li class="nav-item">' +
                     '<a class="nav-link" href="videos.html">Important video</a>' +
                     '</li>' +
                 '</ul>' +

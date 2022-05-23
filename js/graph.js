@@ -1,6 +1,6 @@
 // create an array with nodes
 var nodes = new vis.DataSet([
-    { id: 1, label: "Disconnection" },
+    { id: 1, label: "Disconnection", explanation: "Lorem ipsum dolor sit amet" },
     { id: 2, label: "Democratic power" },
     { id: 3, label: "Unawareness" },
     { id: 4, label: "Stratification" },
@@ -42,8 +42,9 @@ var edges = new vis.DataSet([
     { from: 5, to: 12 },
     { from: 6, to: 7 },
     { from: 7, to: 22 },
-    { from: 9, to: 25 },
+    { from: 8, to: 25 },
     { from: 9, to: 10 },
+    { from: 9, to: 25 },
     { from: 10, to: 11 },
     { from: 11, to: 14 },
     { from: 11, to: 12 },
@@ -74,3 +75,15 @@ var data = {
 };
 var options = {};
 var network = new vis.Network(container, data, options);
+
+network.on( 'click', function(properties) {
+    var ids = properties.nodes;
+    var clickedNodes = nodes.get(ids);
+    console.log('clicked nodes:', clickedNodes);
+    if(clickedNodes.length > 0){
+        node = clickedNodes[0]
+        document.getElementById("modalTitle").innerHTML = node["label"]
+        document.getElementById("modalBody").innerHTML = node["explanation"]
+        $("#infoModal").modal();
+    }
+});

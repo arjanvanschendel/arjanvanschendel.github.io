@@ -2,6 +2,7 @@
   "dependencies": {
     "bootstrap": "^4.6.0",
     "jquery": "^3.6.0",
+    "vis-network": "^9.1.2",
     "yarn": "^1.22.10"
   }
 }

@@ -94,7 +94,14 @@ network.on( 'click', function(properties) {
         document.getElementById("sidebarContent").innerHTML = node["explanation"]
         $("#infoModal").modal();
     }
-    else if(clickedNodes.length == 0){
+    else if(clickedEdges.length > 0){
+        edge = clickedEdges[0]
+        title = nodes.get(edge.from)["label"] + " - " + nodes.get(edge.to)["label"]
+        content = edge["explanation"] ?? "";
+        document.getElementById("sidebarTitle").innerHTML = title
+        document.getElementById("sidebarContent").innerHTML = content
+    }
+    else{
         document.getElementById("sidebarTitle").innerHTML = ""
         document.getElementById("sidebarContent").innerHTML = ""
     }

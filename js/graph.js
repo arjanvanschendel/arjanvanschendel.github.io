@@ -27,7 +27,7 @@ var nodes = new vis.DataSet([
 ]);
 
 var edges = new vis.DataSet([
-    { from: 1, to: 2, dashes: true },
+    { from: 1, to: 2, dashes: true, explanation: "Lorem ipsum dolor sit amet" },
     { from: 2, to: 3 },
     { from: 2, to: 4 },
     { from: 2, to: 25 },
@@ -79,8 +79,12 @@ network.on( 'click', function(properties) {
     console.log('clicked nodes:', clickedNodes);
     if(clickedNodes.length > 0){
         node = clickedNodes[0]
-        document.getElementById("modalTitle").innerHTML = node["label"]
-        document.getElementById("modalBody").innerHTML = node["explanation"]
+        document.getElementById("sidebarTitle").innerHTML = node["label"]
+        document.getElementById("sidebarContent").innerHTML = node["explanation"]
         $("#infoModal").modal();
+    }
+    else if(clickedNodes.length == 0){
+        document.getElementById("sidebarTitle").innerHTML = ""
+        document.getElementById("sidebarContent").innerHTML = ""
     }
 });

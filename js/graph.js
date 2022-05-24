@@ -132,6 +132,19 @@ var network = new vis.Network(container, data, options);
 
 // onClick handler
 
+function getConnectedNodesText(connectedNodes){
+    toReturn = "<br><br><b>Connected node" +
+        (connectedNodes.length > 1 ? "s" : "") +
+        ":</b> "
+    connectedNodes.forEach(node => {
+        toReturn = toReturn + nodes.get(node)["label"] + ", "
+    })
+    if(connectedNodes.length > 0){
+        toReturn = toReturn.slice(0, -2)
+    }
+    return toReturn
+}
+
 network.on('click', function(properties) {
     var clickedNodes = nodes.get(properties.nodes);
     var clickedEdges = edges.get(properties.edges);
@@ -144,13 +157,15 @@ network.on('click', function(properties) {
             setNodeColors(nodes.get(node), findNodeBackgroundColor(node), blackColor);
         })
         document.getElementById("sidebarTitle").innerHTML = node["label"]
-        document.getElementById("sidebarContent").innerHTML = node["explanation"]
+        document.getElementById("sidebarContent").innerHTML = node["explanation"] + getConnectedNodesText(connectedNodes)
     }
     else if(clickedEdges.length > 0){
         setColorsGreyedOut()
         edge = clickedEdges[0]
         nodeFrom = nodes.get(edge.from)
         nodeTo = nodes.get(edge.to)
+        setNodeColors(nodeFrom, findNodeBackgroundColor(nodeFrom), blackColor);
+        setNodeColors(nodeTo, findNodeBackgroundColor(nodeTo), blackColor);
 
         title = nodeFrom["label"] + " - " + nodeTo["label"]
         content = edge["explanation"] ?? "";

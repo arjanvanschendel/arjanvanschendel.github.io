@@ -78,6 +78,9 @@ var edges = new vis.DataSet([
 // Background color calculation
 
 const blues = ["#cee9ea", "#b5d7db", "#9dc5cd", "#86b3c0", "#70a1b4", "#5a90a8", "#467e9c"]
+const blackColor = "#000000"
+const semiLightGray = "#555555"
+const lightGray = "#888888"
 
 function countConnections(id, edges){
     count = 0;
@@ -86,16 +89,36 @@ function countConnections(id, edges){
             count++
         }
     })
-    return Math.min(count, blues.length);
+    return Math.min(count, blues.length-1);
 }
 
-nodesArray = nodes.get();
-nodesArray.forEach(node => {
+function findNodeBackgroundColor(node){
+    return blues[countConnections(node["id"], edges)]
+}
+
+function setNodeColors(node, backgroundColor, fontColor){
     node.color = {
-        background: blues[countConnections(node["id"], edges)]
+        background: backgroundColor
+    }
+    node.font = {
+        color: fontColor
     }
     nodes.update(node);
-})
+}
+
+function resetColors(){
+    nodes.get().forEach(node => {
+        setNodeColors(node, findNodeBackgroundColor(node), blackColor);
+    })
+}
+
+function setColorsGreyedOut(){
+    nodes.get().forEach(node => {
+        setNodeColors(node, lightGray, semiLightGray)
+    })
+}
+
+resetColors()
 
 // Actual network construction
 
@@ -107,23 +130,35 @@ var data = {
 var options = {};
 var network = new vis.Network(container, data, options);
 
-network.on( 'click', function(properties) {
+// onClick handler
+
+network.on('click', function(properties) {
     var clickedNodes = nodes.get(properties.nodes);
     var clickedEdges = edges.get(properties.edges);
     
     if(clickedNodes.length > 0){
+        setColorsGreyedOut()
         node = clickedNodes[0]
+        connectedNodes = network.getConnectedNodes(node["id"])
+        connectedNodes.forEach(node => {
+            setNodeColors(nodes.get(node), findNodeBackgroundColor(node), blackColor);
+        })
         document.getElementById("sidebarTitle").innerHTML = node["label"]
         document.getElementById("sidebarContent").innerHTML = node["explanation"]
     }
     else if(clickedEdges.length > 0){
+        setColorsGreyedOut()
         edge = clickedEdges[0]
-        title = nodes.get(edge.from)["label"] + " - " + nodes.get(edge.to)["label"]
+        nodeFrom = nodes.get(edge.from)
+        nodeTo = nodes.get(edge.to)
+
+        title = nodeFrom["label"] + " - " + nodeTo["label"]
         content = edge["explanation"] ?? "";
         document.getElementById("sidebarTitle").innerHTML = title
         document.getElementById("sidebarContent").innerHTML = content
     }
     else{
+        resetColors()
         document.getElementById("sidebarTitle").innerHTML = ""
         document.getElementById("sidebarContent").innerHTML = ""
     }

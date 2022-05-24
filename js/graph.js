@@ -1,3 +1,5 @@
+// Data
+
 var nodes = new vis.DataSet([
     { id: 1, label: "Disconnection", explanation: "To actively change conditions (regarding inequality) it is required for an agent to be a 'problem owner' which causes behavioural change. For this to occur, it is required that the agent is connected to the problem. However, there are indications that portions of the population are disconnected from society causing passive behaviour. Further details about this process can be found in HYPERLINK." },
     { id: 2, label: "Democratic power", explanation: "Democracy is influenced by inequality, however the exact mechanism is unclear. Two opposing theorems are the 'redistributive perspective' and the 'unequal power perspective' which state that either democratic power resorts to the median voter or by the powerful few respectively. Further details about their characteristics can be found in HYPERLINK." },
@@ -73,6 +75,30 @@ var edges = new vis.DataSet([
     { from: 22, to: 24 },
 ]);
 
+// Background color calculation
+
+const blues = ["#cee9ea", "#b5d7db", "#9dc5cd", "#86b3c0", "#70a1b4", "#5a90a8", "#467e9c"]
+
+function countConnections(id, edges){
+    count = 0;
+    edges.forEach(edge =>{
+        if(edge["from"] == id || edge["to"] == id){
+            count++
+        }
+    })
+    return Math.min(count, blues.length);
+}
+
+nodesArray = nodes.get();
+nodesArray.forEach(node => {
+    node.color = {
+        background: blues[countConnections(node["id"], edges)]
+    }
+    nodes.update(node);
+})
+
+// Actual network construction
+
 var container = document.getElementById("network");
 var data = {
     nodes: nodes,
@@ -83,16 +109,12 @@ var network = new vis.Network(container, data, options);
 
 network.on( 'click', function(properties) {
     var clickedNodes = nodes.get(properties.nodes);
-    console.log('clicked nodes:', clickedNodes);
-
     var clickedEdges = edges.get(properties.edges);
-    console.log('clicked edges:', clickedEdges);
     
     if(clickedNodes.length > 0){
         node = clickedNodes[0]
         document.getElementById("sidebarTitle").innerHTML = node["label"]
         document.getElementById("sidebarContent").innerHTML = node["explanation"]
-        $("#infoModal").modal();
     }
     else if(clickedEdges.length > 0){
         edge = clickedEdges[0]

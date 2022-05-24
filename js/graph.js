@@ -1,4 +1,3 @@
-// create an array with nodes
 var nodes = new vis.DataSet([
     { id: 1, label: "Disconnection", explanation: "Lorem ipsum dolor sit amet" },
     { id: 2, label: "Democratic power" },
@@ -27,9 +26,8 @@ var nodes = new vis.DataSet([
     { id: 25, label: "Economic inequality" },
 ]);
 
-// create an array with edges
 var edges = new vis.DataSet([
-    { from: 1, to: 2 },
+    { from: 1, to: 2, dashes: true },
     { from: 2, to: 3 },
     { from: 2, to: 4 },
     { from: 2, to: 25 },
@@ -67,7 +65,6 @@ var edges = new vis.DataSet([
     { from: 23, to: 24 },
 ]);
 
-// create a network
 var container = document.getElementById("network");
 var data = {
     nodes: nodes,

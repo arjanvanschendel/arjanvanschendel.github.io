@@ -15,7 +15,7 @@ var menu =  '<nav class="navbar navbar-expand-lg navbar-light bg-light">' +
                     '<a class="nav-link" href="videos.html">Important video</a>' +
                     '</li>' +
                     '<li class="nav-item">' +
-                    '<a class="nav-link" href="graph.html">Inequality model</a>' +
+                    '<a class="nav-link" href="inequality_model.html">Inequality model</a>' +
                     '</li>' +
                 '</ul>' +
                 '</div>' +

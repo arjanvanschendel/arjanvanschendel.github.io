@@ -22,7 +22,15 @@
     </head>
     <body>
         <div style = "padding:2rem">
-          <h1>Conceptual model of economic inequality</h1>
+          <div class="row">
+            <div class="col-11" style="display:block; float:left;">
+              <h1>Conceptual model of economic inequality</h1>
+            </div>
+            <div class="col-1" style="display:block; float:left;">
+              <button class="btn btn-primary btn-sm" id="generalButton" onclick="generalButtonOnClick()">General</button>
+              <button class="btn btn-primary btn-sm" id="nlButton" onclick="nlButtonOnClick()">NL</button>
+            </div>
+          </div>
           <div class="row">
             <div class="col-9" style="display:block; float:left;">
               <div id="network"></div>

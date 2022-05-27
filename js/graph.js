@@ -96,7 +96,10 @@ function updateSidebarForNodesSelection(){
         node = nodes.get(selectedNodes[0])
         connectedNodes = network.getConnectedNodes(selectedNodes[0])
         title = node["label"]
-        content = (explanationLanguages == "general" ? node["explanation"] : node["explanationNL"]) + getConnectedNodesText(connectedNodes)
+        content = ""
+        if(explanationLanguages == "nl" && node["explanationNL"]) content = node["explanationNL"]        
+        else if(node["explanation"]) content = node["explanation"]
+        content = content + getConnectedNodesText(connectedNodes)
         updateSidebarElements(title, content)
     }
 }
@@ -109,9 +112,7 @@ function updateSidebarForEdgesSelection(){
         nodeTo = nodes.get(edge.to)
         title = nodeFrom["label"] + " - " + nodeTo["label"]
         content = ""
-        if(explanationLanguages == "nl"){
-            if(edge["explanationNL"]) content = edge["explanationNL"]
-        }
+        if(explanationLanguages == "nl" && edge["explanationNL"]) content = edge["explanationNL"]
         else if(edge["explanation"]) content = edge["explanation"]
         updateSidebarElements(title, content)
     }

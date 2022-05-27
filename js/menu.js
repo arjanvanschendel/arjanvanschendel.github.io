@@ -1,5 +1,5 @@
 var menu =  '<nav class="navbar navbar-expand-lg navbar-light bg-light">' +
-                '<a class="navbar-brand" href="index.html">Av$</a>' +
+                '<a class="navbar-brand" href="index.html">AvS</a>' +
                 '<button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">' +
                 '<span class="navbar-toggler-icon"></span>' +
                 '</button>' +
@@ -13,6 +13,9 @@ var menu =  '<nav class="navbar navbar-expand-lg navbar-light bg-light">' +
                     '</li>' +
                     '<li class="nav-item">' +
                     '<a class="nav-link" href="videos.html">Important video</a>' +
+                    '</li>' +
+                    '<li class="nav-item">' +
+                    '<a class="nav-link" href="graph.html">Inequality model</a>' +
                     '</li>' +
                 '</ul>' +
                 '</div>' +

@@ -57,7 +57,7 @@ function updateColorsForEdgesSelection(){
     setNodeColors(nodeTo, findNodeBackgroundColor(nodeTo), blackColor);
 }
 
-// Region button handlers
+// Button handlers
 
 var explanationLanguages = "general";
 
@@ -73,6 +73,14 @@ function nlButtonOnClick(){
     updateSidebarForSelection()
     document.getElementById("generalButton").disabled = false
     document.getElementById("nlButton").disabled = true
+}
+
+var readMorePagenumber = ""
+
+function readMoreButtonOnClick(){
+    currentLocation = window.location.href
+    link = currentLocation.substr(0, currentLocation.lastIndexOf("\\") + 1) + "documents\\Thesis_Economic_Inequality.pdf#page=" + readMorePagenumber
+    window.open(link)
 }
 
 // Sidebar update events
@@ -97,10 +105,17 @@ function updateSidebarForNodesSelection(){
         connectedNodes = network.getConnectedNodes(selectedNodes[0])
         title = node["label"]
         content = ""
-        if(explanationLanguages == "nl" && node["explanationNL"]) content = node["explanationNL"]        
-        else if(node["explanation"]) content = node["explanation"]
+        link = undefined
+        if(explanationLanguages == "nl" && node["explanationNL"]) {
+            content = node["explanationNL"]
+            link = node["linkToPageNL"]
+        }     
+        else if(node["explanation"]) {
+            content = node["explanation"]
+            link = node["linkToPageGlobal"]
+        }
         content = content + getConnectedNodesText(connectedNodes)
-        updateSidebarElements(title, content)
+        updateSidebarElements(title, content, link)
     }
 }
 
@@ -112,21 +127,30 @@ function updateSidebarForEdgesSelection(){
         nodeTo = nodes.get(edge.to)
         title = nodeFrom["label"] + " - " + nodeTo["label"]
         content = ""
-        if(explanationLanguages == "nl" && edge["explanationNL"]) content = edge["explanationNL"]
-        else if(edge["explanation"]) content = edge["explanation"]
-        updateSidebarElements(title, content)
+        link = undefined
+        if(explanationLanguages == "nl" && edge["explanationNL"]) {
+            content = edge["explanationNL"]
+            link = edge["linkToPageNL"]
+        }
+        else if(edge["explanation"]) {
+            content = edge["explanation"]
+            link = edge["linkToPageGlobal"]
+        }
+        updateSidebarElements(title, content, link)
     }
 }
 
 function updateSidebarForSelection(){
     if(network.getSelection().nodes.length > 0) updateSidebarForNodesSelection()
     else if(network.getSelection().edges.length > 0) updateSidebarForEdgesSelection()
-    else updateSidebarElements("","")
+    else updateSidebarElements("","", false)
 }
 
-function updateSidebarElements(title, content){
+function updateSidebarElements(title, content, buttonYesNo){
     document.getElementById("sidebarTitle").innerHTML = title;
-    document.getElementById("sidebarContent").innerHTML = content
+    document.getElementById("sidebarContent").innerHTML = content;
+    readMorePagenumber = buttonYesNo;
+    document.getElementById("readMoreButton").style.display = buttonYesNo ? "block" : "none";
 }
 
 // Actual network construction
@@ -155,6 +179,6 @@ network.on('click', function() {
     }
     else{
         resetColors()
-        updateSidebarElements("","")
+        updateSidebarElements("","", false)
     }
 });

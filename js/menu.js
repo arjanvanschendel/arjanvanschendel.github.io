@@ -17,6 +17,9 @@ var menu =  '<nav class="navbar navbar-expand-lg navbar-light bg-light">' +
                     '<li class="nav-item">' +
                     '<a class="nav-link" href="inequality_model.html">Inequality model</a>' +
                     '</li>' +
+                    '<li class="nav-item">' +
+                    '<a class="nav-link" href="mahjong.html">Mahjong score calculator</a>' +
+                    '</li>' +
                 '</ul>' +
                 '</div>' +
             '</nav>';

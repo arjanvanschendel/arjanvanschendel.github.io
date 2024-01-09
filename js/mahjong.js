@@ -1,5 +1,6 @@
 const placeholder = "<<>>"
 const imagesBase = "images/mahjong/" + placeholder + ".jpg"
+const scoreText = "<h2>Berekende score: " + placeholder + "</h2>"
 const maxSameStoneAllowed = 4
 const singleStoneAllowed = ["flower", "season"]
 
@@ -62,5 +63,5 @@ function stoneUnselected(name){
 function calculate(){
     let score = 0
 
-    
+    document.getElementById("calculatedScore").innerHTML = scoreText.replace(placeholder, score)
 }

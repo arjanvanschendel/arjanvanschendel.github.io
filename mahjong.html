@@ -16,65 +16,75 @@
         <!--CONTENT-->
         <div class="MainContent">
             <h1>Mahjong score calculator</h1>
-            <div id="selector">
-                <table class="tg" cellspacing="0" cellpadding="0">
-                <thead>
-                  <tr>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_01.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_02.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_03.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_04.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_05.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_06.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_07.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_08.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_09.jpg" alt="circles1" width="50px"></th>
-                  </tr>
-                </thead>
-                <tbody>
-                  <tr>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_10.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_11.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_12.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_13.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_14.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_15.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_16.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_17.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_18.jpg" alt="circles1" width="50px"></th>
-                  </tr>
-                  <tr>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_19.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_20.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_21.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_22.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_23.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_24.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_25.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_26.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_27.jpg" alt="circles1" width="50px"></th>
-                  </tr>
-                  <tr>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_28.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_29.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_30.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_31.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_32.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_33.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_34.jpg" alt="circles1" width="50px"></th>
-                  </tr>
-                  <tr>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_37.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_38.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_39.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_40.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_41.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_42.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_43.jpg" alt="circles1" width="50px"></th>
-                    <th class="tg-73oq"><img src="images/mahjong/stone_44.jpg" alt="circles1" width="50px"></th>
-                  </tr>
-                </tbody>
-                </table>
+            <div style = "display: grid; grid-template-columns: auto auto; row-gap: 10px;">
+                <div id="selector" width="40%" style="float: left; padding-right: 10%;">
+                    <h2>Selecteer stenen:</h2>
+                    <table class="tg" cellspacing="0" cellpadding="0">
+                    <thead>
+                    <tr>
+                        <th class="tg-73oq"><img id="circles1" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="circles2" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="circles3" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="circles4" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="circles5" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="circles6" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="circles7" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="circles8" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="circles9" class="selectable_stone" width="50px"></th>
+                    </tr>
+                    </thead>
+                    <tbody>
+                    <tr>
+                        <th class="tg-73oq"><img id="bamboo1" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="bamboo2" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="bamboo3" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="bamboo4" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="bamboo5" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="bamboo6" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="bamboo7" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="bamboo8" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="bamboo9" class="selectable_stone" width="50px"></th>
+                    </tr>
+                    <tr>
+                        <th class="tg-73oq"><img id="sign1" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="sign2" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="sign3" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="sign4" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="sign5" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="sign6" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="sign7" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="sign8" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="sign9" class="selectable_stone" width="50px"></th>
+                    </tr>
+                    <tr>
+                        <th class="tg-73oq"><img id="east" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="south" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="north" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="west" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="dragonred" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="dragongreen" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="dragonwhite" class="selectable_stone" width="50px"></th>
+                    </tr>
+                    <tr>
+                        <th class="tg-73oq"><img id="season1" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="season2" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="season3" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="season4" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="flower1" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="flower2" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="flower3" class="selectable_stone" width="50px"></th>
+                        <th class="tg-73oq"><img id="flower4" class="selectable_stone" width="50px"></th>
+                    </tr>
+                    </tbody>
+                    </table>
+                </div>
+                <div id="selected" class="grid-item" width="30%">                
+                    <h2>Geselecteerde stenen:</h2>
+                    <div id="selectedStoneContainer"></div>
+                </div>
+                <div id="calculateButtonDiv" class="grid-item">
+                    <button onclick="calculate()" class="btn btn-primary">Bereken score</button>
+                </div>
             </div>
         </div>
 

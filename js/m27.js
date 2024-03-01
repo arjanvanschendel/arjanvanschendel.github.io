@@ -1,17 +1,44 @@
 let outputDiv = document.getElementById("outputDiv");
 let outputDivContainer = document.getElementById("outputDivContainer");
 let passwordForm = document.getElementById("passwordForm");
+let errorText = document.getElementById("errorText");
+
+function resetPage(){
+    outputDiv.innerHTML = "";
+    document.getElementById("password").value = ""
+    outputDivContainer.hidden = true;
+    passwordForm.hidden = false;
+    stopConfetti();
+}
 
 function handlePasswordCheck(){
     let input = document.getElementById("password").value;
-    let result = passwords.find(x => matchPasswords(x.password, input))
+    let result = passwords.find(x => matchPasswordsArray(x.password, input))
     if(result){
         console.log(result.result)
         let resultContents = result.result;
         outputDiv.innerHTML = resultContents;
         outputDivContainer.hidden = false
         passwordForm.hidden = true;
+        startConfetti();
     }
+    else{
+        errorText.hidden = false;
+        stopConfetti();
+        setTimeout(function() {
+            errorText.hidden = true;
+        }, 5000);
+    }
+}
+
+function matchPasswordsArray(array, b){
+    let result = false;
+    array.forEach(element => {
+        if(matchPasswords(element, b)){
+            result = true;
+        }
+    });
+    return result;
 }
 
 function matchPasswords(a, b){
@@ -23,14 +50,37 @@ function matchPasswords(a, b){
 
 function cleanString(input){
     return input
-        .toUpperCase()
+        .toLowerCase()
+        .replace(/[.,\/#!$%\^&\*;:{}=\-_`~()]/g,'')
+        .replace(/[áàâä]/g, 'a')
+        .replace(/[úùûü]/g, 'u')
         .replace(/\s+/g, '')
 }
 
 const passwords = [
     {
-        password: "ERVE ASITO",
+        password: ["ERVE ASITO"],
         result: "Zoek op de meest logische plek om dingen op te bergen die je supersporadisch nodig hebt, zoals een rolmaat."
+    },
+    {
+        password: ["AWAY"],
+        result: "Star Wars kijken was altijd al leuk, maar sinds een recente aankoop een stuk indrukwekkender. Zoek bij de elektronica die hier een grote rol in heeft gespeeld."
+    },
+    {
+        password: ["GROGU"],
+        result: "Na de verhuizing bleken er veel te veel borden te zijn voor twee personen. Om de mooiste borden heel te houden, zijn die goed opgeborgen."
+    },
+    {
+        password: ["VALLE GRAN REY"],
+        result: "Een kat komt altijd op zijn pootjes terecht. Dit meubel ook, ooit, maar het is nog niet zo ver…"
+    },
+    {
+        password: ["BISON BOWLINGBAAN HAARLEM"],
+        result: "Hier wordt licht omgezet in Netflix, plastic bewaard in plastic, en klik je de kracht uit een deel van het huis."
+    },
+    {
+        password: ["PIERRE AIGUE", "P AIGUE"],
+        result: "Het zit helemaal onder de bamboe!"
     },
 ]
 
@@ -81,7 +131,7 @@ var removeConfetti; //call to stop the confetti animation and remove all confett
 		if (canvas === null) {
 			canvas = document.createElement("canvas");
 			canvas.setAttribute("id", "confetti-canvas");
-			canvas.setAttribute("style", "display:block;z-index:999999;pointer-events:none");
+			canvas.setAttribute("style", "top:0;left:0;right:0;bottom:0;z-index:2;position:fixed;user-select:none;display:block;z-index:999999;pointer-events:none");
 			document.body.appendChild(canvas);
 			canvas.width = width;
 			canvas.height = height;

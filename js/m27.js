@@ -23,11 +23,8 @@ function handlePasswordCheck(){
         startConfetti();
     }
     else{
-        errorText.hidden = false;
         stopConfetti();
-        setTimeout(function() {
-            errorText.hidden = true;
-        }, 5000);
+		window.alert("Antwoord onjuist.")
     }
 }
 

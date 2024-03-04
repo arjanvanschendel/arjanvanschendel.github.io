@@ -59,7 +59,7 @@ function cleanString(input){
 
 const passwords = [
     {
-        password: ["ERVE ASITO"],
+        password: ["ERVE ASITO", "ERVE ASITO STADION", "STADION ERVE ASITO"],
         result: "Zoek op de meest logische plek om dingen op te bergen die je supersporadisch nodig hebt, zoals een rolmaat."
     },
     {
@@ -67,7 +67,7 @@ const passwords = [
         result: "Star Wars kijken was altijd al leuk, maar sinds een recente aankoop een stuk indrukwekkender. Zoek bij de elektronica die hier een grote rol in heeft gespeeld."
     },
     {
-        password: ["GROGU"],
+        password: ["GROGU", "TOCH BABY YODA"],
         result: "Na de verhuizing bleken er veel te veel borden te zijn voor twee personen. Om de mooiste borden heel te houden, zijn die goed opgeborgen."
     },
     {

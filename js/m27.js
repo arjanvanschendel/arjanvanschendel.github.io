@@ -79,6 +79,10 @@ const passwords = [
         result: "Hier wordt licht omgezet in Netflix, plastic bewaard in plastic, en klik je de kracht uit een deel van het huis."
     },
     {
+        password: ["BAS DOST", "DOST"],
+        result: "Dit cadeau zit verstopt achter een zwemmend skelet."
+    },
+    {
         password: ["PIERRE AIGUE", "P AIGUE"],
         result: "Het zit helemaal onder de bamboe!"
     },
